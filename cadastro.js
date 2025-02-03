@@ -55,7 +55,7 @@ function Cadastrar (){
             localStorage.setItem('usuarios', JSON.stringify(usuarios));
             
             alert("Usuário cadastrado com sucesso")
-            window.location.href = "autenticacao.html";
+            window.location.href = "index.html";
         } else {
             alert("Login já utilizado")
         }
