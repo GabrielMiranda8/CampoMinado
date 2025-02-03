@@ -1,0 +1,47 @@
+<html>
+
+<head>
+	<title>Cadastro</title>
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+	<link type="text/css" rel="stylesheet" href="css/estilo.css" />
+</head>
+
+
+<body onload="configurarMemoriaSecundaria()">
+	<div class="container">
+        <h3 class="text-center">Cadastro de Usuário</h1>
+        <div id="barra" style="border: 2px solid black;"></div>
+		<form id="formularioDados" class="mt-4" action="" method="post">
+			<div class="row form-group">
+				<div class="col-6">
+					<label for="login">Login</label>
+					<input class="form-control" id="login" name="login" type="text">
+				</div>
+
+                <div class="col-6">
+					<label for="senha">Senha</label>
+					<input class="form-control" id="senha" name="senha" type="password">
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-4">
+					<a href="autenticacao.html" class="btn btn-primary float-left">Autenticar Usuário</a>
+				</div>
+				<div class="col-4 d-flex justify-content-center">
+					<button type="button" class="btn btn-danger " onclick="excluirDados()">Excluir Dados</button>
+				</div>
+				<div class="col-4">
+					<button type="button" class="btn btn-primary float-right" onclick="Cadastrar()">Cadastrar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.js"></script>
+	<script type="text/javascript" src="cadastro.js"></script>
+</body>
+
+</html>

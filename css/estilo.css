@@ -1,0 +1,27 @@
+.error{
+    color: red;
+    font-size: 14px;
+}
+
+#jogo {
+    width: 480;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0px;
+}
+
+#jogo button {
+    width: 60px;
+    height: 60px;
+    margin: 1px;
+    cursor: pointer;
+    font-size: 40px;
+    background-color: greenyellow
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
