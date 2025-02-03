@@ -1,126 +1,44 @@
 <html>
+
 <head>
-    <title> Campo Minado</title>
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
-    <link type="text/css" rel="stylesheet" href="css/estilo.css" />
+	<title>Autenticação</title>
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+	<link type="text/css" rel="stylesheet" href="css/estilo.css" />
 </head>
 
+
 <body onload="configurarMemoriaSecundaria()">
-    <div class="container">
-        <div id="titulo" style="height: 6vh; width: 100vh;">
-            <h2 class="text-center"> Campo Minado</h2>
-        </div>
-        <form style="height: 4vh;">
-            <div class="row form-group">
-				<div class="col-12">
-					<label for="login">Recorde</label>
-					<input class="form-control" id="login" name="login" type="text" readonly>
+	<div class="container">
+        <h3 class="text-center">Autenticação de Usuário</h1>
+        <div id="barra" style="border: 2px solid black;"></div>
+		<form id="formularioDados" class="mt-4" action="" method="post">
+			<div class="row form-group">
+				<div class="col-6">
+					<label for="login">Login</label>
+					<input class="form-control" id="login" name="login" type="text">
+				</div>
+
+                <div class="col-6">
+					<label for="senha">Senha</label>
+					<input class="form-control" id="senha" name="senha" type="password">
 				</div>
 			</div>
-        </form>
-        <div class="display d-flex justify-content-end" style="font-size: 35px; width: 40vw;">
-            <span id="minuto" >00</span><span>:</span><span id="segundo">00</span>
+			<div class="row form-group">
+				<div class="col-6">
+					<a href="cadastro.html" class="btn btn-primary float-left">Cadastrar Usuário</a>
+				</div>
+				<div class="col-6">
+					<button type="button" class="btn btn-primary float-right" onclick="Entrar()">Entrar</button>
+				</div>
+			</div>
+		</form>
+	</div>
 
-        </div>
-        <div id="jogo">
-            <button data-i="1"></button>
-            <button data-i="2"></button>
-            <button data-i="3"></button>
-            <button data-i="4"></button>
-            <button data-i="5"></button>
-            <button data-i="6"></button>
-            <button data-i="7"></button>
-            <button data-i="8"></button>
-            <button data-i="9"></button>
-
-            <button data-i="10"></button>
-            <button data-i="11"></button>
-            <button data-i="12"></button>
-            <button data-i="13"></button>
-            <button data-i="14"></button>
-            <button data-i="15"></button>
-            <button data-i="16"></button>
-            <button data-i="17"></button>
-            <button data-i="18"></button>
-
-            <button data-i="19"></button>
-            <button data-i="20"></button>
-            <button data-i="21"></button>
-            <button data-i="22"></button>
-            <button data-i="23"></button>
-            <button data-i="24"></button>
-            <button data-i="25"></button>
-            <button data-i="26"></button>
-            <button data-i="27"></button>
-
-            <button data-i="28"></button>
-            <button data-i="29"></button>
-            <button data-i="30"></button>
-            <button data-i="31"></button>
-            <button data-i="32"></button>
-            <button data-i="33"></button>
-            <button data-i="34"></button>
-            <button data-i="35"></button>
-            <button data-i="36"></button>
-
-            <button data-i="37"></button>
-            <button data-i="38"></button>
-            <button data-i="39"></button>
-            <button data-i="40"></button>
-            <button data-i="41"></button>
-            <button data-i="42"></button>
-            <button data-i="43"></button>
-            <button data-i="44"></button>
-            <button data-i="45"></button>
-
-            <button data-i="46"></button>
-            <button data-i="47"></button>
-            <button data-i="48"></button>
-            <button data-i="49"></button>
-            <button data-i="50"></button>
-            <button data-i="51"></button>
-            <button data-i="52"></button>
-            <button data-i="53"></button>
-            <button data-i="54"></button>
-
-            <button data-i="55"></button>
-            <button data-i="56"></button>
-            <button data-i="57"></button>
-            <button data-i="58"></button>
-            <button data-i="59"></button>
-            <button data-i="60"></button>
-            <button data-i="61"></button>
-            <button data-i="62"></button>
-            <button data-i="63"></button>
-
-            <button data-i="64"></button>
-            <button data-i="65"></button>
-            <button data-i="66"></button>
-            <button data-i="67"></button>
-            <button data-i="68"></button>
-            <button data-i="69"></button>
-            <button data-i="70"></button>
-            <button data-i="71"></button>
-            <button data-i="72"></button>
-
-            <button data-i="73"></button>
-            <button data-i="74"></button>
-            <button data-i="75"></button>
-            <button data-i="76"></button>
-            <button data-i="77"></button>
-            <button data-i="78"></button>
-            <button data-i="79"></button>
-            <button data-i="80"></button>
-            <button data-i="81"></button>
-        </div>
-    </div>
-
-
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/jquery.validate.js"></script>
-    <script type="text/javascript" src="js/jquery.mask.js"></script>
-    <script type="text/javascript" src="jogo.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.js"></script>
+	<script type="text/javascript" src="autenticacao.js"></script>
 </body>
 
 </html>
