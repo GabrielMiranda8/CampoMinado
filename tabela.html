@@ -1,0 +1,62 @@
+<html>
+
+<head>
+	<title>Pontuações </title>
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+	<link type="text/css" rel="stylesheet" href="css/estilo.css" />
+</head>
+
+
+<body onload="configurarMemoriaSecundaria(), imprimirTabela()">
+	
+	<div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="tabela.html">Pontuações</a>
+                    <a class="nav-item nav-link" href="index.html">Autenticação</a>
+                    <a class="nav-item nav-link" href="jogo.html">Campo Minado</a>
+                </div>
+            </div>
+        </nav>
+        <div id="barra" style="border: 2px solid black;"></div>
+
+		<form id="formularioDados" class="mt-4" action="" method="post">
+			<div class="row form-group">
+				<div class="col-12">
+					<label for="login">Login</label>
+					<input class="form-control" id="login" name="login" type="text" readonly>
+				</div>
+			</div>
+			<div class="row form-group">
+				<div class="col-12">
+					<a href="cadastro.html" class="btn btn-primary float-right">Sair</a>
+				</div>
+			</div>
+			<table id="tabelaDados" class="table">
+				<thead>
+					<tr>
+						<th>Login</th>
+                        <th>Jogada</th>
+						<th>Pontuação</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+
+		</form>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.js"></script>
+	<script type="text/javascript" src="tabela.js"></script>
+</body>
+
+</html>

@@ -80,7 +80,7 @@ function Inicio() {
 Inicio()
 
 
-function OlharAoRedor(movimento) {
+function OlharAoRedor(movimento) {    
     var bombas = 0
     var aoRedor = [];
     var cont = 0;
@@ -198,7 +198,7 @@ function Explodir(movimento) {
     }
 }
 
-function novoMovimento(e) {
+function novoMovimento(e) {  
     var movimento = parseInt(e.target.getAttribute("data-i"));
     tabuleiro[movimento].escolhido = true
     if (tabuleiro[movimento].bomba == 1) {
@@ -219,6 +219,7 @@ function novoMovimento(e) {
 
 
 function marcarMovimento(e) {
+    Pontuacao()
     var help = 0
     var flags = 0
     for (let i = 1; i <= 81; i++) {
@@ -270,7 +271,6 @@ function marcarMovimento(e) {
         flags--
     }
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
-    Pontuacao()
 }
 
 function Pontuacao() {
@@ -292,16 +292,45 @@ function Pontuacao() {
             MostrarMapa()
             var pontuacaoAtual = minutos * 60 + segundos
             if (validacao < usuarios.length) {
-                if (pontuacaoAtual < usuarios[validacao].recorde) {
+                if (pontuacaoAtual < usuarios[validacao].recorde || usuarios[validacao].recorde == 0) {
                     usuarios[validacao].recorde = pontuacaoAtual
                     document.getElementById("login").value = usuarios[validacao].recorde;
                 }
             }
+            usuarios[validacao].jogadas[(usuarios[validacao].jogadas).length] = pontuacaoAtual
         }
     }
+    var pontos = 0
+    for (let i = 1; i <= 81; i++) {
+        if (tabuleiro[i].flag && tabuleiro[i].bomba == 1) {
+            pontos++
+        }
+        if (pontos == 15) {
+            alert("Venceu!!!")
+            MostrarMapa()
+            var pontuacaoAtual = minutos * 60 + segundos
+            if (validacao < usuarios.length) {
+                if (pontuacaoAtual < usuarios[validacao].recorde || usuarios[validacao].recorde == 0) {
+                    usuarios[validacao].recorde = pontuacaoAtual
+                    document.getElementById("login").value = usuarios[validacao].recorde;
+                }
+            }
+            usuarios[validacao].jogadas[(usuarios[validacao].jogadas).length] = pontuacaoAtual
+        }
+    }
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    localStorage.setItem('validacao', JSON.stringify(validacao));
 }
 
 function MostrarMapa() {
+    var usuarios;
+    try {
+        usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    } catch (e) {
+        console.error("Erro ao carregar usuários:", e);
+        usuarios = [];
+    }
+    var validacao = parseInt(JSON.parse(localStorage.getItem('validacao'))) || 0;
     var i = 0
     for (i = 1; i <= 81; i++) {
         if (tabuleiro[i].bomba == 1) {
@@ -330,4 +359,6 @@ function MostrarMapa() {
 
         }
     }
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    localStorage.setItem('validacao', JSON.stringify(validacao));
 }

@@ -53,7 +53,7 @@ function Entrar (){
         if (verificado == true){
             alert("Usuário autenticado com sucesso")
             localStorage.setItem('validacao', JSON.stringify(validacao));
-            window.location.href = "jogo.html";
+            window.location.href = "tabela.html";
         } else {
             alert("Login ou senha errados")
         }

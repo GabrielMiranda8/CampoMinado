@@ -7,7 +7,7 @@
 </head>
 
 
-<body onload="configurarMemoriaSecundaria()">
+<body onload="configurarMemoriaSecundaria(), imprimirTabela()">
 	<div class="container">
         <h3 class="text-center">Cadastro de Usuário</h1>
         <div id="barra" style="border: 2px solid black;"></div>
@@ -35,6 +35,16 @@
 				</div>
 			</div>
 		</form>
+		<table id="tabelaDados" class="table">
+			<thead>
+				<tr>
+					<th>Login</th>
+					<th>Recorde</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
 	</div>
 
 	<script type="text/javascript" src="js/jquery.js"></script>
