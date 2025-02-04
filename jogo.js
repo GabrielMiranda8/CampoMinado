@@ -80,7 +80,7 @@ function Inicio() {
 Inicio()
 
 
-function OlharAoRedor(movimento) {    
+function OlharAoRedor(movimento) {
     var bombas = 0
     var aoRedor = [];
     var cont = 0;
@@ -188,17 +188,19 @@ function Explodir(movimento) {
                 var btn = document.querySelectorAll("#jogo button")[aoRedor[i] - 1];
                 btn.style.backgroundColor = "#00f77d";
                 tabuleiro[aoRedor[i]].escolhido = true
+                btn.removeEventListener("click", novoMovimento);
             } else {
                 var btn = document.querySelectorAll("#jogo button")[aoRedor[i] - 1];
                 btn.style.backgroundColor = "#00f77d";
                 btn.innerHTML = bombas;
                 tabuleiro[aoRedor[i]].escolhido = true
+                btn.removeEventListener("click", novoMovimento);
             }
         }
     }
 }
 
-function novoMovimento(e) {  
+function novoMovimento(e) {
     var movimento = parseInt(e.target.getAttribute("data-i"));
     tabuleiro[movimento].escolhido = true
     if (tabuleiro[movimento].bomba == 1) {
@@ -240,35 +242,36 @@ function marcarMovimento(e) {
             usuarios = [];
         }
         var validacao = JSON.parse(localStorage.getItem('validacao')) || 0;
-        e.target.style.backgroundColor = "#fc8601";
         var movimento = parseInt(e.target.getAttribute("data-i"));
 
-        if (tabuleiro[movimento].flag == true) {
-            tabuleiro[movimento].flag = false
-            var btn = document.querySelectorAll("#jogo button")[movimento - 1];
-            btn.style.backgroundColor = "greenyellow";
-            flags--
+        if (tabuleiro[movimento].escolhido == false) {
+            e.target.style.backgroundColor = "#fc8601";
+            if (tabuleiro[movimento].flag == true) {
+                tabuleiro[movimento].flag = false
+                var btn = document.querySelectorAll("#jogo button")[movimento - 1];
+                btn.style.backgroundColor = "greenyellow";
+                flags--
 
-        } else {
-            tabuleiro[movimento].flag = true
-        }
-
-        for (let i = 1; i <= 81; i++) {
-            if (tabuleiro[i].flag == true) {
-                flags++
+            } else {
+                tabuleiro[movimento].flag = true
             }
-            if (flags > 15) {
 
+            for (let i = 1; i <= 81; i++) {
+                if (tabuleiro[i].flag == true) {
+                    flags++
+                }
             }
         }
 
     }
     var movimento = parseInt(e.target.getAttribute("data-i"));
-    if (tabuleiro[movimento].flag == true && help == 0) {
-        tabuleiro[movimento].flag = false
-        var btn = document.querySelectorAll("#jogo button")[movimento - 1];
-        btn.style.backgroundColor = "greenyellow";
-        flags--
+    if (tabuleiro[movimento].escolhido == false) {
+        if (tabuleiro[movimento].flag == true && help == 0) {
+            tabuleiro[movimento].flag = false
+            var btn = document.querySelectorAll("#jogo button")[movimento - 1];
+            btn.style.backgroundColor = "greenyellow";
+            flags--
+        }
     }
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
 }
