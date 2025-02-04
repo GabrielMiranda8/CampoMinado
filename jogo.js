@@ -73,7 +73,9 @@ function Inicio() {
         item.addEventListener("contextmenu", marcarMovimento);
     });
     if (validacao < usuarios.length) {
-        document.getElementById("login").value = usuarios[validacao].recorde;
+        if (usuarios[validacao].recorde != 0) {
+            document.getElementById("login").value = usuarios[validacao].recorde;
+        }
     }
 }
 
